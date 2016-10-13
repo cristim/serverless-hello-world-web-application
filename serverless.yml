@@ -1,0 +1,33 @@
+service: hello-serverless
+provider:
+  name: aws
+  runtime: nodejs4.3
+  
+
+custom:
+  stage: ${opt:stage, env:USER}
+  writeEnvVars:
+    SERVERLESS_STAGE: ${self:custom.stage}
+
+functions:
+  hello:
+    handler: handler.hello
+    memorySize: 512
+    events:
+      - http:
+          method: get
+          path: api
+          cors: true
+   
+plugins:
+   - serverless-plugin-write-env-vars
+
+package:
+  include:
+    - handler.js
+    - node_modules
+    - .env
+  exclude:
+    - .npm
+    - package.json
+    - serverless.env.yaml

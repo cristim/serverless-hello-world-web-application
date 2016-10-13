@@ -1,0 +1,21 @@
+{
+  "name": "hello-serverless",
+  "version": "1.0.0",
+  "description": "This is a showcase of the Serverless framework",
+  "main": "handler.js",
+  "dependencies": {
+    "dotenv": "^2.0.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.6.4",
+    "serverless": "^1.0.0",
+    "serverless-plugin-write-env-vars": "^1.0.1"
+  },
+  "scripts": {
+    "test": "serverless invoke --function hello",
+    "deploy": "serverless deploy --verbose --stage dev"
+  },
+  "author": "Cristian Magherusan-Stanciu <Cristian.Magherusan-Stanciu@here.com>",
+  "license": "MIT",
+  "private": true
+}
